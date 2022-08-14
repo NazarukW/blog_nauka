@@ -1,0 +1,19 @@
+<h1><%= @article.titlr %></h1>
+
+<p><%= @article.body %></p>
+
+<ul>
+	<li><%= link_to "Edit", edit_article_path(@article) %></li>
+	<li><%= link_to "Usuń post", article_path(@article), data: {
+		turbo_method: :delete,
+		turbo_confirm: "Jesteś pewien?"
+		} %></li>
+	<li><%= link_to "Home", articles_path(@article) %></li>
+	
+</ul>
+
+<h2>Komentarze</h2>
+<%= render @article.comments %>
+
+<h2>Dodaj komentarz:</h2>
+<%= render "comments/form" %>

@@ -1,0 +1,15 @@
+<h1>Artykuły</h1>
+
+Mój blog ma <%= Article.public_count %> artykulów i rośnie!
+
+<ul>
+	<% @articles.each do |article|%>
+		<% unless article.archived? %>
+			<li>
+				<%= link_to article.titlr, article %>
+			</li>
+		<% end %>
+	<% end %>
+</ul>
+
+<%= link_to "Nowy Artykuł", new_article_path %>

@@ -1,0 +1,19 @@
+<% unless comment.archived? %>
+
+	<p>
+		<strong>Użytkownik: </strong>
+		<%= comment.commenter %>
+	</p>
+
+	<p>
+		<strong>Komentarz: </strong>
+		<%= comment.body %>
+	</p>
+	
+	<p>
+		<%= link_to "Usuń komentarz", [comment.article, comment], data: {
+			turbo_method: :delete,
+			turbo_confirm: "Jesteś pewien?"
+			} %>
+	</p>
+<% end %>
